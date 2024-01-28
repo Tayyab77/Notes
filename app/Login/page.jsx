@@ -1,5 +1,4 @@
 "use client"
-
 import Link from "next/link";
 import { useState } from "react";
 import {signIn} from "next-auth/react";
@@ -15,9 +14,7 @@ export default function LoginForm() {
     const router = useRouter();
 
     const handleSubmit = async (e) => {
-        console.log('hello ')
         e.preventDefault()
-
         try {
             const res = await signIn("credentials", {
                 email,
@@ -65,7 +62,7 @@ export default function LoginForm() {
                     )}
                    
                     <Link className="text-sm mt-3 text-right" href="/register">
-                        Don't have an account <span
+                        Dont have an account <span
                         className="underline">Register</span>
                     </Link>
                 </form>
