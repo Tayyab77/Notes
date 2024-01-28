@@ -6,7 +6,7 @@ import { HiPencilAlt } from "react-icons/hi";
 const getTopics = async () => {
   try {
     //Here we are using fetch method to fetch data from the api
-    const res = await fetch("http://localhost:3000/api/topics", {
+    const res = await fetch("https://notes-lilac-sigma.vercel.app/api/topics", {
       cache: "no-store",
     });
 
