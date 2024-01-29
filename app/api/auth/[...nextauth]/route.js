@@ -14,7 +14,6 @@ const authOption = {
 
             async authorize(credentials) {
                 const { email, password } = credentials;
-                    console.log("hello123",process.env.NEXTAUTH_SECRET);
                 try {
                     await connectMongoDB();
                     const user = await User.findOne({ email });
