@@ -22,7 +22,7 @@ export default function TopicsList() {
       //components of DOM unless u get response from the db. So once he get response
       //from db then it start to go load navbar and load data in topics also.
       //
-      fetch("http://localhost:3000/api/topics", {
+      fetch("https://notes-lilac-sigma.vercel.app/api/topics", {
         cache: "no-store",
         //So as await is no used we are using then so what will happen,compiler will
         //keep moving to add navbar and other things, and then will help to load data.
