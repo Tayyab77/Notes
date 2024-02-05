@@ -11,9 +11,9 @@ export default function EditTopicForm({ id, title, description }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    //Updated file
     try {
-      const res = await fetch(`https://notes-lilac-sigma.vercel.app/api/topics/${id}`, {
+      const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",

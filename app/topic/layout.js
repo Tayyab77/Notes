@@ -1,7 +1,8 @@
-import { Inter } from 'next/font/google'
-import Navbar from '../../components/Navbar'
+// RootLayout.jsx
 
-const inter = Inter({ subsets: ['latin'] })
+import '@fontsource/inter'; // Importing Inter font styles
+import Navbar from '../../components/Navbar';
+import Navigation from '../../components/Navigation';
 
 export const metadata = {
   title: 'Create Next App',
@@ -10,11 +11,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-        <div className='max-w-3xl mx-auto p-4'>
-          
-      <Navbar/>
-      <div className='mt-8'>{children}</div>
-        </div>
-
-  )
+    <div className='flex max-w-screen-xl mx-auto p-4'>
+      <Navigation /> {/* Include the side navigation component */}
+      <div className='flex-1'>
+        <Navbar />
+        <div className='mt-8'>{children}</div>
+      </div>
+    </div>
+  );
 }
