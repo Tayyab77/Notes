@@ -3,7 +3,7 @@ import EditTaskForm from "@/components/EditTaskForm";
 const getTaskById = async(id) => {
     try {
         console.log("Tayyyab")
-            const res = await fetch(`http://localhost:3000/api/dayRun/${id}`, {
+            const res = await fetch(`https://notes-lilac-sigma.vercel.app/api/dayRun/${id}`, {
                
                 cache: "no-store",
             });

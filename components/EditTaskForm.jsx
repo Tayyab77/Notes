@@ -13,7 +13,7 @@ export default function EditTaskForm({ id, title, description }) {
     e.preventDefault();
     //Updated file
     try {
-      const res = await fetch(`http://localhost:3000/api/dayRun/${id}`, {
+      const res = await fetch(`https://notes-lilac-sigma.vercel.app/api/dayRun/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",

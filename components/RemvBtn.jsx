@@ -10,7 +10,7 @@ export default function RemvBtn({id}){
         const confirmed = confirm("Are you sure");
 
         if (confirmed) {
-              const res= await fetch(`http://localhost:3000/api/dayRun?id=${id}`,{
+              const res= await fetch(`https://notes-lilac-sigma.vercel.app/api/dayRun?id=${id}`,{
                 method: "DELETE",
             });
 
