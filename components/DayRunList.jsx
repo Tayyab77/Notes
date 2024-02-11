@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link";
-import RemoveBtn from "./RemoveBtn";
+import RemvBtn from "./RemvBtn";
 import { HiPencilAlt } from "react-icons/hi";
 import { useEffect, useState } from "react";
 
@@ -9,28 +9,28 @@ import { useEffect, useState } from "react";
 //By default Jscript is asynchronous(Compiler makes all hits and go) but we put 
 //async(compli makes first hit to db lets it comlete then go for sec hit after completion)
 // to get it done synchronous
-export default function TopicsList() {
+export default function TasksList() {
 //many things will be there in response like raw data and we want to take out only "topics"
 //from getTopics(); Which we transferd from api from  
 //await says first complete first task then start(send/recv) another.  
-  const [topics,setTopics]  = useState([])
+  const [tasks,setTasks]  = useState([])
   const [filter, setFilter] = useState(""); 
-  const getTopics = () => {
+  const getTasks = () => {
     try {
       //Here we are using fetch method to fetch data from the api, 
       //await says to compiler just stay on this line, dont move to load other
       //components of DOM unless u get response from the db. So once he get response
       //from db then it start to go load navbar and load data in topics also.
       //
-      fetch("http://localhost:3000/api/topics", {
+      fetch("http://localhost:3000/api/dayRun", {
         cache: "no-store",
         //So as await is no used we are using then so what will happen,compiler will
         //keep moving to add navbar and other things, and then will help to load data.
       }).then(res=>res.json()).then(res=>{
-        setTopics(res.topics)
+        setTasks(res.tasks)
       });
     } catch (error) {
-      console.log("Error loading topics: ", error);
+      console.log("Error loading tasks: ", error);
     }
   };
   const handleFilterChange = (event) => {
@@ -38,11 +38,11 @@ export default function TopicsList() {
   };
 
   // Filtered topics based on the filter value
-  const filteredTopics = topics.filter((topic) =>
-    topic.title.toLowerCase().includes(filter.toLowerCase())
+  const filteredTasks = tasks.filter((task) =>
+    task.title.toLowerCase().includes(filter.toLowerCase())
   );
   useEffect(() => {
-    getTopics();
+    getTasks();
   }, []);
 
   return (
@@ -53,7 +53,7 @@ export default function TopicsList() {
         value={filter}
         onChange={handleFilterChange}
       />
-      {filteredTopics.map((t) => (
+      {filteredTasks.map((t) => (
         <div
         //Nextjs updates data of each component on key, So he assigns each component 
         // a unique key instead of runngin any algo he decides to take id of every
@@ -75,8 +75,8 @@ export default function TopicsList() {
             each object like remove and edit btn on same time instead of figuring
              when we click on these buttons 
             */}
-            <RemoveBtn id={t._id} />
-            <Link href={`/topic/editTopic/${t._id}`}>
+            <RemvBtn id={t._id} />
+            <Link href={`/dayRun/editTask/${t._id}`}>
               <HiPencilAlt size={24} />
             </Link>
           </div>

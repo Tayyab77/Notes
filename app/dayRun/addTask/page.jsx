@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function AddTopic() {
+export default function AddTask() {
     //This full line is state, We will get the data from input boxes and will store in 
     //state var title, and initialy we will keep it blank
     const [title, setTitle] = useState("");
@@ -22,7 +22,7 @@ export default function AddTopic() {
 
         try {
 
-            const res = await fetch("http://localhost:3000/api/topics", {
+            const res = await fetch("http://localhost:3000/api/dayRun", {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json",
@@ -37,12 +37,12 @@ export default function AddTopic() {
             if (res.ok) {
                 router.refresh()
                 setTimeout(() => {
-                    router.push('/topic');
+                    router.push('/dayRun');
                 }, 500);
                 ;
 
             } else {
-                throw new Error("Failed to create a topic")
+                throw new Error("Failed to create a Task")
             }
 
 
@@ -68,7 +68,7 @@ export default function AddTopic() {
                 onChange={(e) => setTitle(e.target.value)} value={title}
                 className="border border-slate-500 px-8 py-2"
                 type="text"
-                placeholder="Topic title" />
+                placeholder="Task title" />
 
 
 
@@ -83,10 +83,10 @@ export default function AddTopic() {
                 className="border border-slate-500 px-8 py-2"
                 type="text"
                 multiple={true}
-                placeholder="Topic Description"
+                placeholder="Task Description"
             />
 
-            <button type="submit" className="bg-green-600 font-bold text-white py-3 px-6 w-fit">Add Topic</button>
+            <button type="submit" className="bg-green-600 font-bold text-white py-3 px-6 w-fit">Add Task</button>
 
         </form>
     )

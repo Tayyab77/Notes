@@ -15,8 +15,8 @@ const Navigation = () => {
           </Link>
         </li>
         <li>
-          <Link href="/contact">
-            <div className="block py-2 px-4 hover:bg-gray-700 cursor-pointer">Contact</div>
+          <Link href="/dayRun">
+            <div className="block py-2 px-4 hover:bg-gray-700 cursor-pointer">Day Run</div>
           </Link>
         </li>
       </ul>

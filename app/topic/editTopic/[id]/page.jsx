@@ -2,12 +2,12 @@ import EditTopicForm from "@/components/EditTopicForm";
 
 const getTopicById = async(id) => {
     try {
-            const res = await fetch(`https://notes-lilac-sigma.vercel.app//api/topics/${id}`, {
+            const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
                 cache: "no-store",
             });
 
             if(!res.ok){
-                throw new Error("Failed to fetch topic")
+                throw new Error("Failed to fetch task")
             }
 
      return res.json();
@@ -22,3 +22,4 @@ export default async function EditTopic({ params }) {
     const {title, description} = topic;
     return <EditTopicForm id={id} title={title} description={description}/>;
 }
+

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function EditTopicForm({ id, title, description }) {
+export default function EditTaskForm({ id, title, description }) {
   const [newTitle, setNewTitle] = useState(title);
   const [newDescription, setNewDescription] = useState(description);
 
@@ -13,7 +13,7 @@ export default function EditTopicForm({ id, title, description }) {
     e.preventDefault();
     //Updated file
     try {
-      const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
+      const res = await fetch(`http://localhost:3000/api/dayRun/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
@@ -22,12 +22,12 @@ export default function EditTopicForm({ id, title, description }) {
       });
 
       if (!res.ok) {
-        throw new Error("Failed to update topic");
+        throw new Error("Failed to update task");
       }
 
       router.refresh();
       setTimeout(() => {
-        router.push("/topic");
+        router.push("/dayRun");
       }, 700);
       
     } catch (error) {
@@ -55,7 +55,7 @@ export default function EditTopicForm({ id, title, description }) {
       />
 
       <button className="bg-green-600 font-bold text-white py-3 px-6 w-fit">
-        Update Topic
+        Update Task
       </button>
     </form>
   );
