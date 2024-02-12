@@ -39,7 +39,7 @@ export default function TasksList() {
 
   // Filtered topics based on the filter value
   const filteredTasks = tasks.filter((task) =>
-    task.title.toLowerCase().includes(filter.toLowerCase())
+    task.description.toLowerCase().includes(filter.toLowerCase())
   );
   useEffect(() => {
     getTasks();
@@ -49,7 +49,7 @@ export default function TasksList() {
     <>
      <input
         type="text"
-        placeholder="Filter by title..."
+        placeholder="Filter by prefix..."
         value={filter}
         onChange={handleFilterChange}
       />
