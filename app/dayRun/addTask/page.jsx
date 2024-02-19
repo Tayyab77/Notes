@@ -22,7 +22,7 @@ export default function AddTask() {
 
         try {
 
-            const res = await fetch("http://localhost:3000/api/dayRun", {
+            const res = await fetch("https://notes-lilac-sigma.vercel.app/api/dayRun", {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json",

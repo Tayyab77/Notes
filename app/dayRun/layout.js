@@ -1,11 +1,7 @@
 "use client"
-
 import React, { useState, useEffect } from 'react';
 import '@fontsource/inter'; // Importing Inter font styles
 import Navbar from '../../components/Navbar';
-import Navigation from '../../components/Navigation';
-
-
 
 export default function RootLayout({ children }) {
   const [showScrollButton, setShowScrollButton] = useState(false);
@@ -17,7 +13,7 @@ export default function RootLayout({ children }) {
     };
 
     window.addEventListener('scroll', handleScroll);
-    
+
     // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -29,15 +25,14 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <div className='flex max-w-screen-xl mx-auto p-4'>
-      <Navigation /> {/* Include the side navigation component */}
-      <div className='flex-1'>
+    <div className='max-w-screen-xl mx-auto p-8'>
+      <div className='mt-4'>
         <Navbar />
         <div className='mt-8'>{children}</div>
         {showScrollButton && (
           <button
             onClick={scrollToTop}
-            className='fixed bottom-4 right-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600'
+            className='fixed bottom-8 right-8 bg-gradient-to-r from-teal-600 to-cyan-500 text-white py-2 px-4 rounded-md hover:bg-gradient-to-r hover:from-teal-700 hover:to-cyan-600'
           >
             Scroll to Top
           </button>

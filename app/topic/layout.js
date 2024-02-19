@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
 
   return (
     <div className='flex max-w-screen-xl mx-auto p-4'>
-      <Navigation /> {/* Include the side navigation component */}
+      
       <div className='flex-1'>
         <Navbar />
         <div className='mt-8'>{children}</div>

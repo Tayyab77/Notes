@@ -53,9 +53,10 @@ export default function EditTaskForm({ id, title, description }) {
         multiple={true}
         placeholder="Topic Description"
       />
-
-      <button className="bg-green-600 font-bold text-white py-3 px-6 w-fit">
+        
+      <button className="bg-green-600 font-bold text-white py-3 px-6 w-fit">      
         Update Task
+        
       </button>
     </form>
   );
